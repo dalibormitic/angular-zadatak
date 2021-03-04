@@ -1,0 +1,31 @@
+.file-item {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-header {
+  border: none;
+  background-color: cyan;
+}
+
+.modal-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.modal-body {
+  background-color: cyan;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}

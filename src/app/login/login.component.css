@@ -1,0 +1,25 @@
+.logo {
+  width: 40%;
+  margin-top: 50px;
+}
+
+.login-label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 20px;
+  padding: 20px;
+}
+
+button {
+  border-radius: 20px;
+}
+
+.invalid-input {
+  border: 3px solid red;
+}
+
+.valid-input {
+  border: 3px solid green;
+}

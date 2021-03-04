@@ -1,0 +1,13 @@
+.navbar {
+  background-color: dodgerblue;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-text {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
