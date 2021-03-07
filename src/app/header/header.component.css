@@ -1,13 +1,24 @@
 .navbar {
-  background-color: dodgerblue;
+  background-color: var(--shadow-dark-blue);
+  height: 100px;
 }
 
 .navbar-brand {
   font-weight: bold;
+  color: var(--shadow-light-blue);
 }
 
 .navbar-text {
-  color: black;
+  color: var(--shadow-light-blue);
   font-weight: bold;
   cursor: pointer;
+}
+
+.btn-dark {
+  background-color: var(--dark-blue);
+  border: none;
+}
+
+.btn-dark:hover {
+  background: var(--lighter-blue);
 }

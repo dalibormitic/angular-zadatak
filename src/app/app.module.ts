@@ -9,9 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { AddPdfComponent } from './add-pdf/add-pdf.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ListViewComponent, HeaderComponent],
+  declarations: [AppComponent, LoginComponent, ListViewComponent, HeaderComponent, AddPdfComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule, PdfViewerModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

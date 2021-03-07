@@ -13,7 +13,7 @@ li {
 
 .modal-header {
   border: none;
-  background-color: cyan;
+  background-color: var(--lighter-blue);
 }
 
 .modal-title {
@@ -22,10 +22,55 @@ li {
 }
 
 .modal-body {
-  background-color: cyan;
+  background-color: var(--lightest-blue);
 }
 
 .spinner-border {
   width: 3rem;
   height: 3rem;
+}
+
+.delete-btn {
+  background: var(--dark-blue);
+  color: #fff;
+  border: none;
+  float: right;
+}
+
+.delete-btn:hover {
+  background: var(--lighter-blue);
+}
+
+.file {
+  padding: 15px 20px;
+  background-color: var(--lightest-blue);
+  border-radius: 10px;
+  margin: 5px;
+  width: auto !important;
+  box-shadow: 2px 2px var(--shadow-dark-blue);
+}
+
+.file:hover {
+  background-color: var(--shadow-dark-blue);
+}
+
+ul {
+  margin-bottom: 100px;
+}
+
+.close {
+  color: var(--shadow-light-blue);
+}
+
+.close:hover {
+  color: var(--dark-blue);
+}
+
+.filename {
+  line-height: 2;
+}
+
+#delete-alert {
+  background-color: var(--dark-blue);
+  color: var(--shadow-light-blue);
 }

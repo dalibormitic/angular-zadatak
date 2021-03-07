@@ -4,32 +4,39 @@
   <h1 class="text-center mt-5">
     File list
   </h1>
+  <app-add-pdf></app-add-pdf>
+  <ngb-alert id="delete-alert" #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+  </ngb-alert>
   <p class="mt-5 title">Available files:</p>
-  <ul *ngFor="let file of files" class="list-group">
-    <ng-template #content let-modal>
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100" id="modal-basic-title">📜 {{ file.filename }}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="d-flex justify-content-center" *ngIf="showLoader">
-          <div class="spinner-border text-primary mb-3" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
+  <ul class="list-group">
+    <li *ngIf="files.length === 0">There are no files to show!</li>
+    <li *ngFor="let file of files" class="file file-item" (click)="setPdfSrc(file.filename); openModal(content)">
+      <span class="filename">📂 {{ file.filename }}</span>
+      <button class="btn delete-btn btn-dark" (click)="deleteFile(file)">Delete</button>
+      <ng-template #content let-modal>
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100" id="modal-basic-title">📜 {{ file.filename }}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <pdf-viewer [src]="pdfSrc"
-                    [render-text]="true"
-                    style="display: block;"
-                    [fit-to-page]="true"
-                    [original-size]="true"
-                    [show-all]="true"
-                    (after-load-complete)="hideLoader()"
-        ></pdf-viewer>
-      </div>
-    </ng-template>
-    <li (click)="setPdfSrc(file.filename); openModal(content)" class="file-item list-group-item list-group-item-action list-group-item-primary">📂 {{ file.filename }}</li>
+        <div class="modal-body">
+          <div class="d-flex justify-content-center" *ngIf="showLoader">
+            <div class="spinner-border text-primary mb-3" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          <pdf-viewer [src]="pdfSrc"
+                      [render-text]="true"
+                      style="display: block;"
+                      [fit-to-page]="true"
+                      [original-size]="true"
+                      [show-all]="true"
+                      (after-load-complete)="hideLoader()"
+          ></pdf-viewer>
+        </div>
+      </ng-template>
+    </li>
   </ul>
 </div>
 

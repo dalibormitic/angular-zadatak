@@ -5,15 +5,7 @@
 
 .login-label {
   font-weight: bold;
-}
-
-.form-control {
-  border-radius: 20px;
-  padding: 20px;
-}
-
-button {
-  border-radius: 20px;
+  color: var(--shadow-light-blue);
 }
 
 .invalid-input {
@@ -22,4 +14,21 @@ button {
 
 .valid-input {
   border: 3px solid green;
+}
+
+.login-btn {
+  background-color: var(--dark-blue);
+  color: var(--shadow-light-blue);
+}
+
+.login-btn:hover {
+  background-color: var(--shadow-dark-blue);
+}
+
+.title {
+  color: var(--shadow-light-blue);
+}
+
+.msg {
+  margin-top: 5px;
 }

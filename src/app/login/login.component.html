@@ -2,7 +2,7 @@
   <img src="assets/blinking-logo.png" class="logo" alt="logo">
 </div>
 
-<h3 class="text-center mt-5">Please login to continue!</h3>
+<h3 class="text-center mt-5 title">Please login to continue!</h3>
 
 <form class="login-form col mt-5" (ngSubmit)="onLogIn()" [formGroup]="logInForm">
   <div class="mb-3 form-group">
@@ -19,7 +19,7 @@
        autocomplete="off"
        [ngClass]="{'invalid-input' : (logInForm.get('username').invalid && logInForm.get('username').dirty), 'valid-input': logInForm.get('username').valid }"
     />
-    <p class="text-center" *ngIf="logInForm.get('username').invalid && logInForm.get('username').dirty">Username must have at least 7 characters!</p>
+    <p class="text-center msg" *ngIf="logInForm.get('username').invalid && logInForm.get('username').dirty">Username must have at least 7 characters!</p>
   </div>
   <div class="mb-3 form-group">
     <label for="password" class="col-md-4 offset-md-4 col-form-label login-label">Password</label>
@@ -33,8 +33,8 @@
       autocomplete="off"
       [ngClass]="{'invalid-input' : (logInForm.get('password').invalid && logInForm.get('password').dirty), 'valid-input': logInForm.get('password').valid }"
     />
-    <p class="text-center" *ngIf="logInForm.get('password').invalid && logInForm.get('password').dirty">Password must have at least 5 characters!</p>
+    <p class="text-center msg" *ngIf="logInForm.get('password').invalid && logInForm.get('password').dirty">Password must have at least 5 characters!</p>
   </div>
-  <button type="submit" class="btn btn-dark btn-block col-md-4 offset-md-4 mt-5 login-label" [disabled]="logInForm.invalid">Login</button>
+  <button type="submit" class="btn btn-dark btn-block col-md-4 offset-md-4 mt-5 login-label login-btn" [disabled]="logInForm.invalid">Login</button>
 </form>
 

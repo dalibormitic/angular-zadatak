@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { NgbModal, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import {FilesService} from '../services/files.service';
+import {debounceTime} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-list-view',
@@ -8,31 +11,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ListViewComponent implements OnInit {
   showLoader = true;
+  files: Array<any>;
+  successMessage = '';
+  private _success = new Subject<string>();
 
-  files: Array<any> = [
-      {
-        id: 1,
-        filename: 'adobe.pdf'
-      },
-      {
-        id: 2,
-        filename: 'bestsample.pdf'
-      },
-      {
-        id: 3,
-        filename: 'newtest.pdf'
-      },
-      {
-        id: 4,
-        filename: 'sample_file.pdf'
-      },
-      {
-        id: 5,
-        filename: 'testtest.pdf'
-      }
-    ];
+  @ViewChild('selfClosingAlert', {static: false}) selfClosingAlert: NgbAlert;
 
-  constructor(private modalService: NgbModal) {
+
+  constructor(private modalService: NgbModal, private filesService: FilesService) {
   }
 
   pdfSrc = '';
@@ -51,6 +37,18 @@ export class ListViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.files = this.filesService.getFiles();
+  }
+
+  deleteFile(file: any): void {
+    this.filesService.deleteFile(file);
+    this._success.subscribe(message => this.successMessage = message);
+    this._success.pipe(debounceTime(1500)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
+    this._success.next('Successfully deleted!');
   }
 
 }

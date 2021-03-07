@@ -1,0 +1,18 @@
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-control-file {
+  display: inline-block;
+  width: auto;
+}
+
+.btn-dark {
+  background-color: var(--dark-blue);
+  margin-left: 10px;
+}
+
+.btn-dark:hover {
+  background-color: var(--shadow-dark-blue);
+}
